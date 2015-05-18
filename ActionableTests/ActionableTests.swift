@@ -16,4 +16,22 @@ class ActionableTests: XCTestCase {
       actionable.printHello()
    }
 
+   func testLifecycle() {
+      var calledCount = 0;
+
+      let actionable = Actionable()
+
+      actionable.on("myEvent", handler: {
+         calledCount += 1
+      })
+
+      actionable.trigger("otherEvent")
+      XCTAssertEqual(0, calledCount)
+
+      actionable.trigger("myEvent")
+      XCTAssertEqual(1, calledCount)
+      actionable.trigger("myEvent")
+      XCTAssertEqual(2, calledCount)
+   }
+
 }
