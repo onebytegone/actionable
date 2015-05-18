@@ -24,6 +24,15 @@ class Actionable {
    }
 
    /**
+    * Removes all handlers for the specified event
+    *
+    * :param: event The key for the event handler
+    */
+   func allOff(event: String) {
+      fatalError("allOff(event:) has not been created yet")
+   }
+
+   /**
     * Removes a handler for the specified event
     *
     * :param: event The key for the event handler
