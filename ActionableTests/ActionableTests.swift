@@ -11,9 +11,9 @@ import XCTest
 
 class ActionableTests: XCTestCase {
 
-    func testExample() {
-        let actionable = Actionable()
-        actionable.printHello()
-    }
+   func testExample() {
+      let actionable = Actionable()
+      actionable.printHello()
+   }
 
 }

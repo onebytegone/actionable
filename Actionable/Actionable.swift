@@ -9,7 +9,7 @@
 import Foundation
 
 class Actionable {
-    func printHello() {
-        println("Hello")
-    }
+   func printHello() {
+      println("Hello")
+   }
 }
