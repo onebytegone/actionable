@@ -22,8 +22,8 @@ public class Actionable {
     * :param: event The key for the event handler
     * :param: handler The closure to run on event trigger
     */
-   public func on(event: String, handler: () -> Void) {
-      eventSetForEvent(event).addHandler(handler)
+   public func on(event: String, handler: () -> Void) -> ActionableEvent {
+      return eventSetForEvent(event).addHandler(handler)
    }
 
    /**
@@ -40,10 +40,10 @@ public class Actionable {
     * Removes a handler for the specified event
     *
     * :param: event The key for the event handler
-    * :param: handler The `ActionableEvent` that would run on event trigger
+    * :param: wrapper The `ActionableEvent` that would run on event trigger
     */
-   public func off(event: String, handler: ActionableEvent) {
-      eventSetForEvent(event).removeHandler(handler)
+   public func off(event: String, wrapper: ActionableEvent) {
+      eventSetForEvent(event).removeHandler(wrapper)
    }
 
    /**
