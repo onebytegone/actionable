@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ActionableEvent {
+public class ActionableEvent {
    let handler: () -> Void
 
    /**
@@ -16,14 +16,14 @@ class ActionableEvent {
     *
     * :param: handler The closure to store which can be called later
     */
-   init(handler: () -> Void) {
+   public init(handler: () -> Void) {
       self.handler = handler
    }
 
    /**
     * Runs the stored closure
     */
-   func call() {
+   public func call() {
       handler()
    }
 }

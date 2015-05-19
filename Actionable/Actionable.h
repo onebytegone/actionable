@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Ethan Smith. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import Foundation;
 
 //! Project version number for Actionable.
 FOUNDATION_EXPORT double ActionableVersionNumber;

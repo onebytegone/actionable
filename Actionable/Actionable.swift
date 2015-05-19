@@ -9,8 +9,12 @@
 
 import Foundation
 
-class Actionable {
+public class Actionable {
    var eventStore: [String : ActionableEventSet] = [:]
+
+   public init() {
+
+   }
 
    /**
     * Registers a handler for the specified event
@@ -18,7 +22,7 @@ class Actionable {
     * :param: event The key for the event handler
     * :param: handler The closure to run on event trigger
     */
-   func on(event: String, handler: () -> Void) {
+   public func on(event: String, handler: () -> Void) {
       eventSetForEvent(event).addHandler(handler)
    }
 
@@ -27,7 +31,7 @@ class Actionable {
     *
     * :param: event The key for the event handler
     */
-   func allOff(event: String) {
+   public func allOff(event: String) {
       // Dispose of the event set
       eventStore[event] = ActionableEventSet()
    }
@@ -38,7 +42,7 @@ class Actionable {
     * :param: event The key for the event handler
     * :param: handler The `ActionableEvent` that would run on event trigger
     */
-   func off(event: String, handler: ActionableEvent) {
+   public func off(event: String, handler: ActionableEvent) {
       eventSetForEvent(event).removeHandler(handler)
    }
 
@@ -47,7 +51,7 @@ class Actionable {
     *
     * :param: event The key for the event handler
     */
-   func trigger(event: String) {
+   public func trigger(event: String) {
       eventStore[event]?.callAllHandlers()
    }
 
