@@ -24,13 +24,23 @@ actionable.on("showGreeting", {
 })
 ```
 
-### `.off(key, [handler])`
+### `.allOff(key)`
 
-This is used to remove the handlers for the given event. If a `handler` is specified, only that one is removed.
+This is used to remove all the handlers for the given event.
 
 ```
 let actionable = Actionable()
-actionable.off("showGreeting")
+actionable.allOff("showGreeting")
+```
+
+### `.off(key, wrapper)`
+
+This is used to remove a specific handlers for the given event.
+
+```
+let actionable = Actionable()
+var wrapper = actionable.on("showGreeting", { _ in })
+actionable.off("showGreeting", wrapper)
 ```
 
 ### `.trigger(key)`
