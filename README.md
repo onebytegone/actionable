@@ -19,7 +19,7 @@ This is used to bind an action to the given event. The event is named with `key`
 
 ```
 let actionable = Actionable()
-actionable.on("showGreeting", {
+actionable.on("showGreeting", handler: {
    println("Greetings and salutations!");
 })
 ```
@@ -39,8 +39,8 @@ This is used to remove a specific handlers for the given event.
 
 ```
 let actionable = Actionable()
-var wrapper = actionable.on("showGreeting", { _ in })
-actionable.off("showGreeting", wrapper)
+var wrapper = actionable.on("showGreeting", handler: { _ in })
+actionable.off("showGreeting", wrapper: wrapper)
 ```
 
 ### `.trigger(key)`
