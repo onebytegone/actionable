@@ -9,21 +9,46 @@
 import Foundation
 
 public class ActionableEvent {
-   let handler: () -> Void
+   var events: [ActionableHandler] = []
 
    /**
-    * Setup
+    * Adds the handler wrapper to the list of handlers.
     *
-    * :param: handler The closure to store which can be called later
+    * :param: wrapper The wrapper for the closure
     */
-   public init(handler: () -> Void) {
-      self.handler = handler
+   func addHandler(wrapper: ActionableHandler) {
+      events.append(wrapper)
    }
 
    /**
-    * Runs the stored closure
+    * Remove the handler with the given wrapper
+    *
+    * :param: wrapper The wrapper for the handler
     */
-   public func call() {
-      handler()
+   func removeHandler(wrapper: ActionableHandler) {
+      for (index, event) in enumerate(events) {
+         if event === wrapper {
+            events.removeAtIndex(index)
+         }
+      }
    }
+
+   /**
+    * Will call all the handlers currently stored
+    */
+   func callAllHandlers(data: Any?) {
+      for event in events {
+         event.call(data: data)
+      }
+   }
+
+   /**
+    * Returns the number of handlers stored
+    *
+    * :returns: Total handler count
+    */
+   func handlerCount() -> Int {
+      return events.count
+   }
+
 }

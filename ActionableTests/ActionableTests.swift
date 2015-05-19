@@ -15,8 +15,7 @@ class ActionableTests: XCTestCase {
       var calledCount = 0;
 
       let actionable = Actionable()
-
-      let wrapper = actionable.on("myEvent", handler: {
+      let wrapper = actionable.on("myEvent", closure: { _ in
          calledCount += 1
       })
 
@@ -31,6 +30,20 @@ class ActionableTests: XCTestCase {
       actionable.off("myEvent", wrapper: wrapper)
       actionable.trigger("myEvent")
       XCTAssertEqual(2, calledCount)
+   }
+
+   func testLifecycleWithArgs() {
+      var calledCount = 0;
+
+      let actionable = Actionable()
+      let wrapper = actionable.on("add") { (value: Any?) -> () in
+         calledCount += value as! Int
+      }
+
+      actionable.trigger("add", data: 1)
+      XCTAssertEqual(1, calledCount)
+      actionable.trigger("add", data: 10)
+      XCTAssertEqual(11, calledCount)
    }
 
 }
