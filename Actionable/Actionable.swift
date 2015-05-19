@@ -1,3 +1,4 @@
+
 //
 //  Actionable.swift
 //  Actionable
@@ -9,9 +10,7 @@
 import Foundation
 
 class Actionable {
-   func printHello() {
-      println("Hello")
-   }
+   var eventStore: [String : ActionableEventSet] = [:]
 
    /**
     * Registers a handler for the specified event
@@ -20,7 +19,7 @@ class Actionable {
     * :param: handler The closure to run on event trigger
     */
    func on(event: String, handler: () -> Void) {
-      fatalError("on(event:, handler:) has not been created yet")
+      eventSetForEvent(event).addHandler(handler)
    }
 
    /**
@@ -29,17 +28,18 @@ class Actionable {
     * :param: event The key for the event handler
     */
    func allOff(event: String) {
-      fatalError("allOff(event:) has not been created yet")
+      // Dispose of the event set
+      eventStore[event] = ActionableEventSet()
    }
 
    /**
     * Removes a handler for the specified event
     *
     * :param: event The key for the event handler
-    * :param: handler The closure that should of ran on event trigger
+    * :param: handler The `ActionableEvent` that would run on event trigger
     */
-   func off(event: String, handler: () -> Void) {
-      fatalError("off(event:, handler:) has not been created yet")
+   func off(event: String, handler: ActionableEvent) {
+      eventSetForEvent(event).removeHandler(handler)
    }
 
    /**
@@ -48,6 +48,25 @@ class Actionable {
     * :param: event The key for the event handler
     */
    func trigger(event: String) {
-      fatalError("trigger(event:) has not been created yet")
+      eventStore[event]?.callAllHandlers()
+   }
+
+   /**
+    * Returns the event set for the event. If the event 
+    * set doesn't exist, it will be created.
+    *
+    * :param: event The key for the event handler
+    *
+    * :returns: The `ActionableEventSet` for the event key
+    */
+   private func eventSetForEvent(event: String) -> ActionableEventSet {
+      if let eventSet = eventStore[event] {
+         return eventSet
+      }
+
+      // Create new ActionableEventSet
+      var eventSet = ActionableEventSet()
+      eventStore[event] = eventSet
+      return eventSet
    }
 }
