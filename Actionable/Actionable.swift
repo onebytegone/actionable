@@ -70,6 +70,25 @@ public class Actionable {
    }
 
    /**
+    * Adds the event `finalEvent` so it will be triggered when
+    * the event named `initialEvent` on `target` is triggered.
+    *
+    * :Basic flow on trigger:
+    *    1. `target` has trigger called for `initialEvent`
+    *    2. `target` calls all its handlers
+    *    3. One of the handlers triggers `finalEvent` on this object
+    *
+    * :param: finalEvent The name of the event to trigger
+    * :param: target Another Actionable object that will triggers the event to act on
+    * :param: initialEvent The event on `target` that starts the chain
+    */
+   public func chain(finalEvent: String, to target: Actionable, forEvent initialEvent: String) {
+      target.on(initialEvent) { (data: Any?) -> Void in
+         self.trigger(finalEvent, data: data)
+      }
+   }
+
+   /**
     * Returns the event set for the event. If the event
     * set doesn't exist, it will be created.
     *
