@@ -27,12 +27,12 @@ class ActionablePerformanceTests: XCTestCase {
 
    func testActionable() {
       var index = 0
-      let closure: () -> Void = {
+      let closure: (Any?) -> Void = { _ in
          index += 1
       }
 
       var actionable = Actionable()
-      actionable.on("increment", handler: closure)
+      actionable.on("increment", closure: closure)
 
       measureBlock() {
          for i in 0...self.LoopCount {
@@ -43,27 +43,27 @@ class ActionablePerformanceTests: XCTestCase {
 
    func testActionableEventSet() {
       var index = 0
-      let closure: () -> Void = {
+      let closure: (Any?) -> Void = { _ in
          index += 1
       }
 
-      var eventSet = ActionableEventSet()
-      eventSet.addHandler(closure)
+      var eventSet = ActionableEvent()
+      eventSet.addHandler(ActionableHandler(closure))
 
       measureBlock() {
          for i in 0...self.LoopCount {
-            eventSet.callAllHandlers()
+            eventSet.callAllHandlers(nil)
          }
       }
    }
 
    func testActionableEvent() {
       var index = 0
-      let closure: () -> Void = {
+      let closure: (Any?) -> Void = { _ in
          index += 1
       }
 
-      var event = ActionableEvent(handler: closure)
+      var event = ActionableHandler(closure)
 
       measureBlock() {
          for i in 0...self.LoopCount {
