@@ -17,11 +17,23 @@ This is a work in progress. It is in a pre alpha state.
 
 This is used to bind an action to the given event. The event is named with `key`. The closure `handler` will be called when that event is triggered.
 
+##### No Arguments:
 ```
 let actionable = Actionable()
-actionable.on("showGreeting", closure: { _ in
+actionable.on("showGreeting", handler: {
    println("Greetings and salutations!");
 })
+actionable.trigger("showGreeting")
+```
+
+##### With Argument:
+```
+let actionable = Actionable()
+actionable.on("showMsg", handler: { (msg: Any?) in
+   println("Message is \(msg as! String)");
+})
+actionable.trigger("showMsg", data: "Hello")
+actionable.trigger("showMsg", data: "Aloha")
 ```
 
 ### `.allOff(key)`
@@ -39,7 +51,7 @@ This is used to remove a specific handlers for the given event.
 
 ```
 let actionable = Actionable()
-var wrapper = actionable.on("showGreeting", closure: { _ in })
+var wrapper = actionable.on("showGreeting", handler: { })
 actionable.off("showGreeting", wrapper: wrapper)
 ```
 
