@@ -15,12 +15,26 @@ public class Actionable {
    public init() { }
 
    /**
+    * Registers a handler without any args for the specified event.
+    *
+    * :param: event The key for the event handler
+    * :param: handler The closure to run on event trigger
+    */
+   public func on(event: String, handler: () -> Void) -> ActionableHandler {
+      // Since the handler passed doesn't take any args,
+      // we are going to wrap it with one that does.
+      let wrapper = { ( arg: Any? ) in handler() }
+
+      return self.on(event, handler: wrapper)
+   }
+
+   /**
     * Registers a handler for the specified event
     *
     * :param: event The key for the event handler
-    * :param: closure The closure to run on event trigger
+    * :param: handler The closure to run on event trigger
     */
-   public func on(event: String, closure: (Any?) -> Void) -> ActionableHandler {
+   public func on(event: String, handler closure: (Any?) -> Void) -> ActionableHandler {
       var handler = ActionableHandler(closure)
       eventSetForEvent(event).addHandler(handler)
       return handler

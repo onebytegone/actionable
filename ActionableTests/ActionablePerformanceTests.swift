@@ -32,7 +32,7 @@ class ActionablePerformanceTests: XCTestCase {
       }
 
       var actionable = Actionable()
-      actionable.on("increment", closure: closure)
+      actionable.on("increment", handler: closure)
 
       measureBlock() {
          for i in 0...self.LoopCount {

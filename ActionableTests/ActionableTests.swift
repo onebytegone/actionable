@@ -15,7 +15,7 @@ class ActionableTests: XCTestCase {
       var calledCount = 0;
 
       let actionable = Actionable()
-      let wrapper = actionable.on("myEvent", closure: { _ in
+      let wrapper = actionable.on("myEvent", handler: {
          calledCount += 1
       })
 
