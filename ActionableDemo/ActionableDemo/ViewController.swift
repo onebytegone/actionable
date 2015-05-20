@@ -31,7 +31,7 @@ class ViewController: UIViewController {
       if sender.selected {
          model.actionable.allOff("changed:timer")
       } else {
-         model.actionable.on("changed:timer", closure: { _ in
+         model.actionable.on("changed:timer", handler: {
             self.label.text = "Date is \(NSDate.timeIntervalSinceReferenceDate())"
          });
       }
