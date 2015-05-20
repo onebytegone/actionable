@@ -63,3 +63,23 @@ This is executes all the registered handlers for the event.
 let actionable = Actionable()
 actionable.trigger("showGreeting")
 ```
+
+### `.chain(key, target, event)`
+
+This causes `key` to be triggered for this object when `event` on `target` is triggered. Chaining will pass given data along, even if some of the handlers do not require it.
+
+```
+let parent = Actionable()
+let child = Actionable()
+
+parent.on("increment") {
+   println("increment called")
+}
+
+child.chain("moreadds", to: parent, forEvent: "increment");
+child.on("moreadds") {
+   println("Add more stuff!")
+}
+
+parent.trigger("increment")
+```
