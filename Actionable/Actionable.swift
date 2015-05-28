@@ -9,6 +9,10 @@
 
 import Foundation
 
+public protocol ActionableObject {
+   var events: Actionable {get}
+}
+
 public class Actionable {
    var eventStore: [String : ActionableEvent] = [:]
 

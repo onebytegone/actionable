@@ -29,9 +29,9 @@ class ViewController: UIViewController {
 
    func toggleState(sender: UIButton) {
       if sender.selected {
-         model.actionable.allOff("changed:timer")
+         model.events.allOff("changed:timer")
       } else {
-         model.actionable.on("changed:timer", handler: {
+         model.events.on("changed:timer", handler: {
             self.label.text = "Date is \(NSDate.timeIntervalSinceReferenceDate())"
          });
       }

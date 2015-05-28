@@ -9,8 +9,8 @@
 import Foundation
 import Actionable
 
-class TimedModel : NSObject {
-   var actionable = Actionable();
+class TimedModel : NSObject, ActionableObject {
+   var events = Actionable();
 
    override init() {
       super.init()
@@ -18,6 +18,6 @@ class TimedModel : NSObject {
    }
 
    func timerFired() {
-      actionable.trigger("changed:timer")
+      events.trigger("changed:timer")
    }
 }
