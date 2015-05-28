@@ -11,6 +11,18 @@ This is a work in progress. It is in a pre alpha state.
 
 
 
+## Performance
+Actionable is slower than using direct closures for event handling. Most of the slowdown seems to be the with dictionary lookups. It may be possible to speed it up, but for now it seems reasonable. There isn't much of an impact until an event is being fired repeatedly a few thousand times.  
+
+#### Times for firing an event 50000 times back to back (Test is in the unit tests)
+| Type                   | Avg. Time | % of baseline |
+|------------------------|-----------|---------------|
+| Closure (baseline)     | 0.04 sec  | 0%            |
+| Actionable             | 0.134 sec | 335%          |
+| Actionable w/o lookups | 0.047 sec | 117.5%        |
+
+
+
 ## Usage
 
 ### `.on(key, handler)`
