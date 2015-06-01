@@ -76,6 +76,10 @@ let actionable = Actionable()
 actionable.trigger("showGreeting")
 ```
 
+### `.trigger(key, callback)`
+
+This will run the callback once all the events have finished. It should be noted that, in this case, the next action will be called when the previous action has been completed. Without the callback, the events will be called regardless of when the others finish.
+
 ### `.chain(key, target, event)`
 
 This causes `key` to be triggered for this object when `event` on `target` is triggered. Chaining will pass given data along, even if some of the handlers do not require it.

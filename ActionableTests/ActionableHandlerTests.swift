@@ -39,4 +39,52 @@ class ActionableHandlerTests: XCTestCase {
       XCTAssertEqual(7, calledCount)
    }
 
+   func testLifecycleWithNext() {
+      var calledCount = 0,
+          nextCalledCount = 0
+
+      let event = ActionableHandler({ (value: Any?, next: () -> Void) in
+         calledCount += value as! Int
+         next()
+      })
+
+      XCTAssertEqual(0, calledCount)
+
+      event.call(data: 5, next: { () -> Void in
+         nextCalledCount += 1
+      })
+      XCTAssertEqual(5, calledCount)
+      XCTAssertEqual(1, nextCalledCount)
+
+      event.call(data: 2, next: { () -> Void in
+         nextCalledCount -= 1
+      })
+      XCTAssertEqual(7, calledCount)
+      XCTAssertEqual(0, nextCalledCount)
+   }
+
+
+   func testLifecycleWithAutoNext() {
+      var calledCount = 0,
+      nextCalledCount = 0
+
+      let event = ActionableHandler({ (value: Any?) in
+         calledCount += value as! Int
+      })
+
+      XCTAssertEqual(0, calledCount)
+
+      event.call(data: 5, next: { () -> Void in
+         nextCalledCount += 1
+      })
+      XCTAssertEqual(5, calledCount)
+      XCTAssertEqual(1, nextCalledCount)
+
+      event.call(data: 2, next: { () -> Void in
+         nextCalledCount -= 1
+      })
+      XCTAssertEqual(7, calledCount)
+      XCTAssertEqual(0, nextCalledCount)
+   }
+
 }

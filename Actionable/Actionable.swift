@@ -45,12 +45,39 @@ public class Actionable {
    }
 
    /**
+    * Registers a handler for the specified event
+    *
+    * :param: event The key for the event handler
+    * :param: handler The closure to run on event trigger
+    */
+   public func on(event: String, handler closure: (Any?, () -> Void) -> Void) -> ActionableHandler {
+      var handler = ActionableHandler(closure)
+      eventSetForEvent(event).addHandler(handler)
+      return handler
+   }
+
+   /**
     * Fires the given event
     *
     * :param: event The key for the event handler
     */
    public func trigger(event: String, data: Any? = nil) {
       eventSetForEvent(event).callAllHandlers(data)
+   }
+
+   /**
+    * Fires the given event, calling all the handlers
+    * sequentially, waiting for each to finish before
+    * calling the next. This is helpful when the event
+    * handlers may have aync actions that need to be
+    * waited on.
+    *
+    * :param: event The key for the event handler
+    * :param: data The data to pass
+    * :param: completed The completion callback
+    */
+   public func trigger(event: String, data: Any? = nil, completed: () -> Void) {
+      eventSetForEvent(event).callHandlersSequentially(data, completed: completed)
    }
 
    /**
