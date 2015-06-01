@@ -43,6 +43,32 @@ public class ActionableEvent {
    }
 
    /**
+    * Will call all the handlers sequentially waiting
+    * for each to finish before calling next. Will call
+    * `completed` when all done.
+    */
+   func callHandlersSequentially(data: Any?, completed: () -> Void) {
+      callNextHandler(events, withData: data, completed: completed)
+   }
+
+   /**
+    * Used for calling the handlers from `callHandlersSequentially(data: completed:)`
+    */
+   private func callNextHandler(handlers: [ActionableHandler], withData data: Any?, completed: () -> Void) {
+      if handlers.count <= 0 {
+         // No handlers left to call. All done.
+         completed()
+         return
+      }
+
+      var mutableHandlers = handlers
+      let first = mutableHandlers.removeAtIndex(0)  // Pop first element from list
+      first.call(data: data) { () -> Void in
+         self.callNextHandler(mutableHandlers, withData: data, completed: completed)
+      }
+   }
+
+   /**
     * Returns the number of handlers stored
     *
     * :returns: Total handler count

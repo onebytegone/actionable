@@ -9,7 +9,7 @@
 import Foundation
 
 public class ActionableHandler {
-   let handler: Any? -> Void
+   let handler: (Any?, () -> Void) -> Void
 
    /**
     * Setup
@@ -17,14 +17,26 @@ public class ActionableHandler {
     * :param: handler The closure to store which can be called later
     */
    public init(_ handler: (Any?) -> Void) {
+      self.handler = { (data: Any?, next: () -> Void) in
+         handler(data)
+         next()
+      }
+   }
+
+   /**
+    * Setup
+    *
+    * :param: handler The closure to store which can be called later
+    */
+   public init(_ handler: (Any?, () -> Void) -> Void) {
       self.handler = handler
    }
 
    /**
     * Runs the stored closure
     */
-   public func call(data: Any? = nil) {
-      handler(data)
+   public func call(data: Any? = nil, next: () -> Void = { _ in }) {
+      handler(data, next)
    }
 
 }
