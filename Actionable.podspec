@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "Actionable"
-  s.version     = "0.0.5"
+  s.version     = "0.0.6"
   s.summary     = "Actionable adds event objects to Swift"
   s.homepage    = "https://github.com/onebytegone/actionable"
   s.license     = { :type => "MIT" }
