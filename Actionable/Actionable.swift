@@ -19,6 +19,10 @@ public class Actionable {
 
    public init() { }
 
+   // *****
+   // MARK: Event Registration
+   // *****
+
    /**
     * Registers a handler without any args for the specified event.
     *
@@ -57,6 +61,10 @@ public class Actionable {
       return handler
    }
 
+   // *****
+   // MARK: Event Triggering
+   // *****
+
    /**
     * Fires the given event
     *
@@ -80,6 +88,10 @@ public class Actionable {
    public func trigger(event: String, data: Any? = nil, completed: () -> Void) {
       eventSetForEvent(event).callHandlersSequentially(data, completed: completed)
    }
+
+   // *****
+   // MARK: Trigger Based on Time
+   // *****
 
    /**
     * Fires the given event after a delay
@@ -110,6 +122,10 @@ public class Actionable {
       }
    }
 
+   // *****
+   // MARK: Remove Temporal Events
+   // *****
+
    /**
     * Removes the delayed or recurring triggers for the event
     *
@@ -127,6 +143,10 @@ public class Actionable {
    public func cancelAllTriggers(event: String) {
       timer.disposeOfStoredTimers()
    }
+
+   // *****
+   // MARK: Remove Event Handlers
+   // *****
 
    /**
     * Removes a handler for the specified event
@@ -148,6 +168,10 @@ public class Actionable {
       eventStore[event] = ActionableEvent()
    }
 
+   // *****
+   // MARK: Additional Actions
+   // *****
+
    /**
     * Adds the event `finalEvent` so it will be triggered when
     * the event named `initialEvent` on `target` is triggered.
@@ -166,6 +190,10 @@ public class Actionable {
          self.trigger(finalEvent, data: data)
       }
    }
+
+   // *****
+   // MARK: Helper Functions
+   // *****
 
    /**
     * Returns the event set for the event. If the event
