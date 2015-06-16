@@ -136,11 +136,9 @@ public class Actionable {
    }
 
    /**
-    * Removes the delayed or recurring triggers for the event
-    *
-    * :param: event The key for the event handler
+    * Removes any delayed or recurring triggers for the event
     */
-   public func cancelAllTriggers(event: String) {
+   public func cancelAllTriggers() {
       timer.disposeOfStoredTimers()
    }
 
