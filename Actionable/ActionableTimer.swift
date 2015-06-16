@@ -39,6 +39,13 @@ public class ActionableTimer {
       timers[key] = nil
    }
 
+   public func disposeOfStoredTimers() {
+      // Cancel all timers
+      for (key, timer) in timers {
+         cancelTimer(key)
+      }
+   }
+
    @objc func timerTriggered(timer: NSTimer) {
       let package = timer.userInfo as! TimerInfoPackage
 
@@ -64,13 +71,6 @@ public class ActionableTimer {
 
    func numberOfStoredTimers() -> Int {
       return timers.count
-   }
-
-   public func disposeOfStoredTimers() {
-      // Cancel all timers
-      for (key, timer) in timers {
-         timer.invalidate()
-      }
    }
 }
 
