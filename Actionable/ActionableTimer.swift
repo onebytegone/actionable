@@ -9,28 +9,52 @@
 import Foundation
 
 public class ActionableTimer {
-   public func timerWithInterval(interval: NSTimeInterval, repeats: Bool = false, closure: () -> Void) {
+   private var timers: [String : NSTimer] = [:]
+
+   public func timerWithInterval(interval: NSTimeInterval, repeats: Bool = false, key: String? = nil, closure: () -> Void) {
       // Since the closure passed doesn't take any args,
       // we are going to wrap it with one that does.
       let wrapper = { ( arg: Any? ) in closure() }
 
-      return self.timerWithInterval(interval, repeats: repeats, closure: wrapper, data: nil)
+      self.timerWithInterval(interval, repeats: repeats, key: key, closure: wrapper, data: nil)
    }
 
-   public func timerWithInterval(interval: NSTimeInterval, repeats: Bool = false, closure: (Any?) -> Void, data: Any?) {
-      let package: [String : Any?] = [
-         "closure": closure,
-         "data": data
-      ]
-
-      NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: "timerTriggered", userInfo: package as? AnyObject, repeats: repeats);
+   public func timerWithInterval(interval: NSTimeInterval, repeats: Bool = false, key: String? = nil, closure: (Any?) -> Void, data: Any?) {
+      let timer = NSTimer.scheduledTimerWithTimeInterval(
+         interval,
+         target: self,
+         selector: "timerTriggered:",
+         userInfo: TimerInfoPackage(closure: closure, data: data),
+         repeats: repeats
+      )
+      storeTimer(timer, key: key)
    }
 
-   private func timerTriggered(timer: NSTimer) {
-      let package = timer.userInfo as! NSDictionary
-      let closure = package["closure"] as! (Any?) -> Void
-      let data: Any? = package["data"]
+   public func cancelTimer(key: String) {
+      timers[key]?.invalidate()
+   }
 
-      closure(data)
+   @objc func timerTriggered(timer: NSTimer) {
+      let package = timer.userInfo as! TimerInfoPackage
+      package.closure(package.data)
+   }
+
+   private func storeTimer(timer: NSTimer, key: String?) {
+      var unwrappedKey = key ?? "\(NSDate.timeIntervalSinceReferenceDate())"
+
+      // If a timer was already set for this key, kill it
+      cancelTimer(unwrappedKey)
+
+      timers[unwrappedKey] = timer
+   }
+}
+
+private class TimerInfoPackage {
+   var closure: (Any?) -> Void = { _ in }
+   var data: Any? = nil
+
+   init(closure: (Any?) -> Void, data: Any?) {
+      self.closure = closure
+      self.data = data
    }
 }
