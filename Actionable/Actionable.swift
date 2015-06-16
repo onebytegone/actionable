@@ -15,8 +15,13 @@ public protocol ActionableObject {
 
 public class Actionable {
    var eventStore: [String : ActionableEvent] = [:]
+   var timer: ActionableTimer = ActionableTimer()
 
    public init() { }
+
+   // *****
+   // MARK: Event Registration
+   // *****
 
    /**
     * Registers a handler without any args for the specified event.
@@ -56,6 +61,10 @@ public class Actionable {
       return handler
    }
 
+   // *****
+   // MARK: Event Triggering
+   // *****
+
    /**
     * Fires the given event
     *
@@ -80,6 +89,65 @@ public class Actionable {
       eventSetForEvent(event).callHandlersSequentially(data, completed: completed)
    }
 
+   // *****
+   // MARK: Trigger Based on Time
+   // *****
+
+   /**
+    * Fires the given event after a delay
+    *
+    * :param: delay The time, in seconds, to wait before triggering the event
+    * :param: event The key for the event handler
+    * :param: data Any data to pass to the event
+    */
+   public func triggerAfterDelay(delay: Double, event: String, data: Any? = nil) {
+      timer.timerWithInterval(delay, repeats: false) { () -> Void in
+         self.trigger(event, data: data)
+      }
+   }
+
+   /**
+    * Fires the given event after an interval, repeating at that interval.
+    * If this is called twice for the same event, it will be called on the
+    * last interval. e.g. called with 30sec interval, then called with 10sec
+    * interval, the event will be repeated on a 10sec interval.
+    *
+    * :param: interval The time period, in seconds, to trigger the event on
+    * :param: event The key for the event handler
+    * :param: data Any data to pass to the event
+    */
+   public func triggerOnInterval(interval: Double, event: String, data: Any? = nil) {
+      timer.timerWithInterval(interval, repeats: true, key: event) { () -> Void in
+         self.trigger(event, data: data)
+      }
+   }
+
+   // *****
+   // MARK: Remove Temporal Events
+   // *****
+
+   /**
+    * Removes the delayed or recurring triggers for the event
+    *
+    * :param: event The key for the event handler
+    */
+   public func cancelTrigger(event: String) {
+      timer.cancelTimer(event)
+   }
+
+   /**
+    * Removes the delayed or recurring triggers for the event
+    *
+    * :param: event The key for the event handler
+    */
+   public func cancelAllTriggers(event: String) {
+      timer.disposeOfStoredTimers()
+   }
+
+   // *****
+   // MARK: Remove Event Handlers
+   // *****
+
    /**
     * Removes a handler for the specified event
     *
@@ -100,6 +168,10 @@ public class Actionable {
       eventStore[event] = ActionableEvent()
    }
 
+   // *****
+   // MARK: Additional Actions
+   // *****
+
    /**
     * Adds the event `finalEvent` so it will be triggered when
     * the event named `initialEvent` on `target` is triggered.
@@ -118,6 +190,10 @@ public class Actionable {
          self.trigger(finalEvent, data: data)
       }
    }
+
+   // *****
+   // MARK: Helper Functions
+   // *****
 
    /**
     * Returns the event set for the event. If the event

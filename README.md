@@ -11,8 +11,28 @@ This is a work in progress. It is in a pre alpha state.
 
 
 
+## Contents ##
+
+- [Status](#status)
+- [Performance](#performance)
+- [Usage](#usage)
+  - [Event Registration](#event-registration)
+    - [`.on(key, handler)`](#onkey-handler)
+    - [`.allOff(key)`](#allOffkey)
+    - [`.off(key, wrapper)`](#offkey-wrapper)
+  - [Event Triggering](#event-triggering)
+    - [`.trigger(key)`](#triggerkey)
+    - [`.trigger(key, callback)`](#triggerkey-callback)
+  - [Time Based Triggering](#time-based-triggering)
+    - [`.triggerAfterDelay(delay, key)`](#triggerAfterDelaydelay-key)
+    - [`.triggerOnInterval(interval, key)`](#triggerOnIntervalinterval-key)
+  - [Other Actions](#other-actions)
+    - [`.chain(key, target, event)`](#chainkey-target-event)
+
+
+
 ## Performance
-Actionable is slower than using direct closures for event handling. Most of the slowdown seems to be the with dictionary lookups. It may be possible to speed it up, but for now it seems reasonable. There isn't much of an impact until an event is being fired repeatedly a few thousand times.  
+Actionable is slower than using direct closures for event handling. Most of the slowdown seems to be the with dictionary lookups. It may be possible to speed it up, but for now it seems reasonable. There isn't much of an impact until an event is being fired repeatedly a few thousand times.
 
 #### Times for firing an event 50000 times back to back (Test is in the unit tests)
 | Type                   | Avg. Time | % of baseline |
@@ -23,7 +43,9 @@ Actionable is slower than using direct closures for event handling. Most of the 
 
 
 
-## Usage
+# Usage
+
+## Event Registration
 
 ### `.on(key, handler)`
 
@@ -67,6 +89,9 @@ var wrapper = actionable.on("showGreeting", handler: { })
 actionable.off("showGreeting", wrapper: wrapper)
 ```
 
+
+## Event Triggering
+
 ### `.trigger(key)`
 
 This is executes all the registered handlers for the event.
@@ -79,6 +104,30 @@ actionable.trigger("showGreeting")
 ### `.trigger(key, callback)`
 
 This will run the callback once all the events have finished. It should be noted that, in this case, the next action will be called when the previous action has been completed. Without the callback, the events will be called regardless of when the others finish.
+
+
+## Time Based Triggering
+
+### `.triggerAfterDelay(delay, key)`
+
+This is will fire the event after the specified delay.
+
+```
+let actionable = Actionable()
+actionable.triggerAfterDelay(0.2, "showGreeting")  // Trigger `showGreeting` after 0.2 sec
+```
+
+### `.triggerOnInterval(interval, key)`
+
+This is will fire the event repeatly on the provided interval. This will wait 1 interval before firing the event the first time.
+
+```
+let actionable = Actionable()
+actionable.triggerOnInterval(0.2, "showGreeting")  // Trigger `showGreeting` every 0.2 sec
+```
+
+
+## Other Actions
 
 ### `.chain(key, target, event)`
 
