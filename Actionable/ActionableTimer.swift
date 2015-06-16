@@ -12,10 +12,7 @@ public class ActionableTimer {
    private var timers: [String : NSTimer] = [:]
 
    deinit {
-      // Cancel all timers
-      for (key, timer) in timers {
-         timer.invalidate()
-      }
+      disposeOfStoredTimers()
    }
 
    public func timerWithInterval(interval: NSTimeInterval, repeats: Bool = false, key: String? = nil, closure: () -> Void) {
@@ -31,7 +28,7 @@ public class ActionableTimer {
          interval,
          target: self,
          selector: "timerTriggered:",
-         userInfo: TimerInfoPackage(closure: closure, data: data),
+         userInfo: TimerInfoPackage(closure: closure, data: data, repeating: repeats),
          repeats: repeats
       )
       storeTimer(timer, key: key)
@@ -44,6 +41,15 @@ public class ActionableTimer {
 
    @objc func timerTriggered(timer: NSTimer) {
       let package = timer.userInfo as! TimerInfoPackage
+
+      // If the timer doesn't repeat, cancel it
+      if !package.repeating {
+         let keys = (timers as NSDictionary).allKeysForObject(timer) as! [String]
+         map(keys) { (key: String) in
+            self.cancelTimer(key)
+         }
+      }
+
       package.closure(package.data)
    }
 
@@ -55,14 +61,27 @@ public class ActionableTimer {
 
       timers[unwrappedKey] = timer
    }
+
+   func numberOfStoredTimers() -> Int {
+      return timers.count
+   }
+
+   public func disposeOfStoredTimers() {
+      // Cancel all timers
+      for (key, timer) in timers {
+         timer.invalidate()
+      }
+   }
 }
 
 private class TimerInfoPackage {
    var closure: (Any?) -> Void = { _ in }
    var data: Any? = nil
+   var repeating: Bool = false
 
-   init(closure: (Any?) -> Void, data: Any?) {
+   init(closure: (Any?) -> Void, data: Any?, repeating: Bool) {
       self.closure = closure
       self.data = data
+      self.repeating = repeating
    }
 }

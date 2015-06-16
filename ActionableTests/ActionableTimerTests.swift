@@ -93,4 +93,20 @@ class ActionableTimerTests: XCTestCase {
 
       self.waitForExpectationsWithTimeout(3, handler: nil)
    }
+
+   func testTimerCleanup() {
+      let timer = ActionableTimer()
+
+      XCTAssertEqual(0, timer.numberOfStoredTimers())
+
+      let expectation = self.expectationWithDescription("repeat timer")
+
+      timer.timerWithInterval(0.1, repeats: false, key: "A", closure: {
+         expectation.fulfill()
+      })
+
+      self.waitForExpectationsWithTimeout(3, handler: { (error: NSError!) -> Void in
+         XCTAssertEqual(0, timer.numberOfStoredTimers())
+      })
+   }
 }
