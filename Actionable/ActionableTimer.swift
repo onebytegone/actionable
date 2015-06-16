@@ -11,6 +11,13 @@ import Foundation
 public class ActionableTimer {
    private var timers: [String : NSTimer] = [:]
 
+   deinit {
+      // Cancel all timers
+      for (key, timer) in timers {
+         timer.invalidate()
+      }
+   }
+
    public func timerWithInterval(interval: NSTimeInterval, repeats: Bool = false, key: String? = nil, closure: () -> Void) {
       // Since the closure passed doesn't take any args,
       // we are going to wrap it with one that does.
@@ -32,6 +39,7 @@ public class ActionableTimer {
 
    public func cancelTimer(key: String) {
       timers[key]?.invalidate()
+      timers[key] = nil
    }
 
    @objc func timerTriggered(timer: NSTimer) {
