@@ -10,6 +10,7 @@
 		3E29766C1B2F73A400673199 /* ActionableTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E29766B1B2F73A400673199 /* ActionableTimer.swift */; };
 		3E456A2C1B304B0B00184ABA /* ActionableTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E29766B1B2F73A400673199 /* ActionableTimer.swift */; };
 		3E456A2E1B304E4800184ABA /* ActionableTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E456A2D1B304E4800184ABA /* ActionableTimerTests.swift */; };
+		3E456A301B30731000184ABA /* ActionableDelayedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E456A2F1B30731000184ABA /* ActionableDelayedTests.swift */; };
 		3EA98F631B18F6F6007A088D /* ActionableSequentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA98F621B18F6F6007A088D /* ActionableSequentialTests.swift */; };
 		3EABAE3F1B0AAD6F00B42EE4 /* ActionableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABAE3E1B0AAD6F00B42EE4 /* ActionableEvent.swift */; };
 		3EABAE421B0AB02700B42EE4 /* ActionableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABAE3E1B0AAD6F00B42EE4 /* ActionableEvent.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		3E29766B1B2F73A400673199 /* ActionableTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableTimer.swift; sourceTree = "<group>"; };
 		3E456A2D1B304E4800184ABA /* ActionableTimerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableTimerTests.swift; sourceTree = "<group>"; };
+		3E456A2F1B30731000184ABA /* ActionableDelayedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableDelayedTests.swift; sourceTree = "<group>"; };
 		3EA98F621B18F6F6007A088D /* ActionableSequentialTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableSequentialTests.swift; sourceTree = "<group>"; };
 		3EABAE3E1B0AAD6F00B42EE4 /* ActionableEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableEvent.swift; sourceTree = "<group>"; };
 		3EABAE441B0AB05200B42EE4 /* ActionableEventTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableEventTests.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				3ED6C2A61B0A8D6D00D64E4E /* ActionableTests.swift */,
 				3ECAC9871B0CFC0E000CF125 /* ActionableChainingTests.swift */,
+				3E456A2F1B30731000184ABA /* ActionableDelayedTests.swift */,
 				3E456A2D1B304E4800184ABA /* ActionableTimerTests.swift */,
 				3EA98F621B18F6F6007A088D /* ActionableSequentialTests.swift */,
 				3EABAE4A1B0AB9E500B42EE4 /* ActionablePerformanceTests.swift */,
@@ -259,6 +262,7 @@
 				3EABAE421B0AB02700B42EE4 /* ActionableEvent.swift in Sources */,
 				3EAE314B1B0C0C6A002E1BBA /* ActionableHandlerTests.swift in Sources */,
 				3EAE31491B0BD996002E1BBA /* ActionableHandler.swift in Sources */,
+				3E456A301B30731000184ABA /* ActionableDelayedTests.swift in Sources */,
 				3ED6C2A71B0A8D6D00D64E4E /* ActionableTests.swift in Sources */,
 				3ED6C2AF1B0A8D7600D64E4E /* Actionable.swift in Sources */,
 				3EA98F631B18F6F6007A088D /* ActionableSequentialTests.swift in Sources */,
