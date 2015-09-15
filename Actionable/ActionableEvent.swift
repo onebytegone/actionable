@@ -14,7 +14,7 @@ public class ActionableEvent {
    /**
     * Adds the handler wrapper to the list of handlers.
     *
-    * :param: wrapper The wrapper for the closure
+    * - parameter wrapper: The wrapper for the closure
     */
    func addHandler(wrapper: ActionableHandler) {
       events.append(wrapper)
@@ -23,7 +23,7 @@ public class ActionableEvent {
    /**
     * Remove the handler with the given wrapper
     *
-    * :param: wrapper The wrapper for the handler
+    * - parameter wrapper: The wrapper for the handler
     */
    func removeHandler(wrapper: ActionableHandler) {
       for (index, event) in enumerate(events) {
@@ -71,7 +71,7 @@ public class ActionableEvent {
    /**
     * Returns the number of handlers stored
     *
-    * :returns: Total handler count
+    * - returns: Total handler count
     */
    func handlerCount() -> Int {
       return events.count
