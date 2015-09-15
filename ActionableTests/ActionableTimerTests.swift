@@ -105,7 +105,7 @@ class ActionableTimerTests: XCTestCase {
          expectation.fulfill()
       })
 
-      self.waitForExpectationsWithTimeout(3, handler: { (error: NSError!) -> Void in
+      self.waitForExpectationsWithTimeout(3, handler: { (error: NSError?) -> Void in
          XCTAssertEqual(0, timer.numberOfStoredTimers())
       })
    }
