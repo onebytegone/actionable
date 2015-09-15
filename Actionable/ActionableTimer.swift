@@ -61,7 +61,7 @@ public class ActionableTimer {
    }
 
    private func storeTimer(timer: NSTimer, key: String?) {
-      var unwrappedKey = key ?? "\(NSDate.timeIntervalSinceReferenceDate())"
+      let unwrappedKey = key ?? "\(NSDate.timeIntervalSinceReferenceDate())"
 
       // If a timer was already set for this key, kill it
       cancelTimer(unwrappedKey)

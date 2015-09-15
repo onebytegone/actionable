@@ -18,7 +18,7 @@ class ActionableTimerTests: XCTestCase {
       let expectation = self.expectationWithDescription("timer should fire")
 
       timer.timerWithInterval(0.1, closure: {
-         var calledAt: Double = NSDate.timeIntervalSinceReferenceDate()
+         let calledAt: Double = NSDate.timeIntervalSinceReferenceDate()
          XCTAssertTrue(startTime <= calledAt-0.1)
          expectation.fulfill()
       })
@@ -34,7 +34,7 @@ class ActionableTimerTests: XCTestCase {
       let expectation = self.expectationWithDescription("timer should fire")
 
       timer.timerWithInterval(0.1, closure: { (data: Any?) in
-         var calledAt: Double = NSDate.timeIntervalSinceReferenceDate()
+         let calledAt: Double = NSDate.timeIntervalSinceReferenceDate()
          XCTAssertTrue(startTime <= calledAt-0.1)
          XCTAssertEqual("data!", data as! String)
          expectation.fulfill()
