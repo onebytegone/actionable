@@ -26,7 +26,7 @@ public class ActionableEvent {
     * - parameter wrapper: The wrapper for the handler
     */
    func removeHandler(wrapper: ActionableHandler) {
-      for (index, event) in enumerate(events) {
+      for (index, event) in events.enumerate() {
          if event === wrapper {
             events.removeAtIndex(index)
          }
@@ -38,7 +38,7 @@ public class ActionableEvent {
     */
    func callAllHandlers(data: Any?) {
       for event in events {
-         event.call(data: data)
+         event.call(data)
       }
    }
 
@@ -63,7 +63,7 @@ public class ActionableEvent {
 
       var mutableHandlers = handlers
       let first = mutableHandlers.removeAtIndex(0)  // Pop first element from list
-      first.call(data: data) { () -> Void in
+      first.call(data) { () -> Void in
          self.callNextHandler(mutableHandlers, withData: data, completed: completed)
       }
    }

@@ -52,7 +52,7 @@ public class ActionableTimer {
       // If the timer doesn't repeat, cancel it
       if !package.repeating {
          let keys = (timers as NSDictionary).allKeysForObject(timer) as! [String]
-         map(keys) { (key: String) in
+         keys.map { (key: String) in
             self.cancelTimer(key)
          }
       }
