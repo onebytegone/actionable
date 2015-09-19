@@ -14,7 +14,7 @@ public class ActionableEvent {
    /**
     * Adds the handler wrapper to the list of handlers.
     *
-    * :param: wrapper The wrapper for the closure
+    * - parameter wrapper: The wrapper for the closure
     */
    func addHandler(wrapper: ActionableHandler) {
       events.append(wrapper)
@@ -23,10 +23,10 @@ public class ActionableEvent {
    /**
     * Remove the handler with the given wrapper
     *
-    * :param: wrapper The wrapper for the handler
+    * - parameter wrapper: The wrapper for the handler
     */
    func removeHandler(wrapper: ActionableHandler) {
-      for (index, event) in enumerate(events) {
+      for (index, event) in events.enumerate() {
          if event === wrapper {
             events.removeAtIndex(index)
          }
@@ -38,7 +38,7 @@ public class ActionableEvent {
     */
    func callAllHandlers(data: Any?) {
       for event in events {
-         event.call(data: data)
+         event.call(data)
       }
    }
 
@@ -63,7 +63,7 @@ public class ActionableEvent {
 
       var mutableHandlers = handlers
       let first = mutableHandlers.removeAtIndex(0)  // Pop first element from list
-      first.call(data: data) { () -> Void in
+      first.call(data) { () -> Void in
          self.callNextHandler(mutableHandlers, withData: data, completed: completed)
       }
    }
@@ -71,7 +71,7 @@ public class ActionableEvent {
    /**
     * Returns the number of handlers stored
     *
-    * :returns: Total handler count
+    * - returns: Total handler count
     */
    func handlerCount() -> Int {
       return events.count

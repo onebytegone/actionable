@@ -33,9 +33,9 @@ class ActionableHandlerTests: XCTestCase {
       })
 
       XCTAssertEqual(0, calledCount)
-      event.call(data: 5)
+      event.call(5)
       XCTAssertEqual(5, calledCount)
-      event.call(data: 2)
+      event.call(2)
       XCTAssertEqual(7, calledCount)
    }
 
@@ -50,13 +50,13 @@ class ActionableHandlerTests: XCTestCase {
 
       XCTAssertEqual(0, calledCount)
 
-      event.call(data: 5, next: { () -> Void in
+      event.call(5, next: { () -> Void in
          nextCalledCount += 1
       })
       XCTAssertEqual(5, calledCount)
       XCTAssertEqual(1, nextCalledCount)
 
-      event.call(data: 2, next: { () -> Void in
+      event.call(2, next: { () -> Void in
          nextCalledCount -= 1
       })
       XCTAssertEqual(7, calledCount)
@@ -74,13 +74,13 @@ class ActionableHandlerTests: XCTestCase {
 
       XCTAssertEqual(0, calledCount)
 
-      event.call(data: 5, next: { () -> Void in
+      event.call(5, next: { () -> Void in
          nextCalledCount += 1
       })
       XCTAssertEqual(5, calledCount)
       XCTAssertEqual(1, nextCalledCount)
 
-      event.call(data: 2, next: { () -> Void in
+      event.call(2, next: { () -> Void in
          nextCalledCount -= 1
       })
       XCTAssertEqual(7, calledCount)

@@ -52,7 +52,7 @@ public class ActionableTimer {
       // If the timer doesn't repeat, cancel it
       if !package.repeating {
          let keys = (timers as NSDictionary).allKeysForObject(timer) as! [String]
-         map(keys) { (key: String) in
+         keys.map { (key: String) in
             self.cancelTimer(key)
          }
       }
@@ -61,7 +61,7 @@ public class ActionableTimer {
    }
 
    private func storeTimer(timer: NSTimer, key: String?) {
-      var unwrappedKey = key ?? "\(NSDate.timeIntervalSinceReferenceDate())"
+      let unwrappedKey = key ?? "\(NSDate.timeIntervalSinceReferenceDate())"
 
       // If a timer was already set for this key, kill it
       cancelTimer(unwrappedKey)

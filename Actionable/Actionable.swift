@@ -26,8 +26,8 @@ public class Actionable {
    /**
     * Registers a handler without any args for the specified event.
     *
-    * :param: event The key for the event handler
-    * :param: handler The closure to run on event trigger
+    * - parameter event: The key for the event handler
+    * - parameter handler: The closure to run on event trigger
     */
    public func on(event: String, handler: () -> Void) -> ActionableHandler {
       // Since the handler passed doesn't take any args,
@@ -40,11 +40,11 @@ public class Actionable {
    /**
     * Registers a handler for the specified event
     *
-    * :param: event The key for the event handler
-    * :param: handler The closure to run on event trigger
+    * - parameter event: The key for the event handler
+    * - parameter handler: The closure to run on event trigger
     */
    public func on(event: String, handler closure: (Any?) -> Void) -> ActionableHandler {
-      var handler = ActionableHandler(closure)
+      let handler = ActionableHandler(closure)
       eventSetForEvent(event).addHandler(handler)
       return handler
    }
@@ -52,11 +52,11 @@ public class Actionable {
    /**
     * Registers a handler for the specified event
     *
-    * :param: event The key for the event handler
-    * :param: handler The closure to run on event trigger
+    * - parameter event: The key for the event handler
+    * - parameter handler: The closure to run on event trigger
     */
    public func on(event: String, handler closure: (Any?, () -> Void) -> Void) -> ActionableHandler {
-      var handler = ActionableHandler(closure)
+      let handler = ActionableHandler(closure)
       eventSetForEvent(event).addHandler(handler)
       return handler
    }
@@ -68,7 +68,7 @@ public class Actionable {
    /**
     * Fires the given event
     *
-    * :param: event The key for the event handler
+    * - parameter event: The key for the event handler
     */
    public func trigger(event: String, data: Any? = nil) {
       eventSetForEvent(event).callAllHandlers(data)
@@ -81,9 +81,9 @@ public class Actionable {
     * handlers may have aync actions that need to be
     * waited on.
     *
-    * :param: event The key for the event handler
-    * :param: data The data to pass
-    * :param: completed The completion callback
+    * - parameter event: The key for the event handler
+    * - parameter data: The data to pass
+    * - parameter completed: The completion callback
     */
    public func trigger(event: String, data: Any? = nil, completed: () -> Void) {
       eventSetForEvent(event).callHandlersSequentially(data, completed: completed)
@@ -96,9 +96,9 @@ public class Actionable {
    /**
     * Fires the given event after a delay
     *
-    * :param: delay The time, in seconds, to wait before triggering the event
-    * :param: event The key for the event handler
-    * :param: data Any data to pass to the event
+    * - parameter delay: The time, in seconds, to wait before triggering the event
+    * - parameter event: The key for the event handler
+    * - parameter data: Any data to pass to the event
     */
    public func triggerAfterDelay(delay: Double, event: String, data: Any? = nil) {
       timer.timerWithInterval(delay, repeats: false) { () -> Void in
@@ -112,9 +112,9 @@ public class Actionable {
     * last interval. e.g. called with 30sec interval, then called with 10sec
     * interval, the event will be repeated on a 10sec interval.
     *
-    * :param: interval The time period, in seconds, to trigger the event on
-    * :param: event The key for the event handler
-    * :param: data Any data to pass to the event
+    * - parameter interval: The time period, in seconds, to trigger the event on
+    * - parameter event: The key for the event handler
+    * - parameter data: Any data to pass to the event
     */
    public func triggerOnInterval(interval: Double, event: String, data: Any? = nil) {
       timer.timerWithInterval(interval, repeats: true, key: event) { () -> Void in
@@ -129,7 +129,7 @@ public class Actionable {
    /**
     * Removes the delayed or recurring triggers for the event
     *
-    * :param: event The key for the event handler
+    * - parameter event: The key for the event handler
     */
    public func cancelTrigger(event: String) {
       timer.cancelTimer(event)
@@ -149,8 +149,8 @@ public class Actionable {
    /**
     * Removes a handler for the specified event
     *
-    * :param: event The key for the event handler
-    * :param: wrapper The `ActionableEvent` that would run on event trigger
+    * - parameter event: The key for the event handler
+    * - parameter wrapper: The `ActionableEvent` that would run on event trigger
     */
    public func off(event: String, wrapper: ActionableHandler) {
       eventSetForEvent(event).removeHandler(wrapper)
@@ -159,7 +159,7 @@ public class Actionable {
    /**
     * Removes all handlers for the specified event
     *
-    * :param: event The key for the event handler
+    * - parameter event: The key for the event handler
     */
    public func allOff(event: String) {
       // Dispose of the event set
@@ -179,9 +179,9 @@ public class Actionable {
     *    2. `target` calls all its handlers
     *    3. One of the handlers triggers `finalEvent` on this object
     *
-    * :param: finalEvent The name of the event to trigger
-    * :param: target Another Actionable object that will triggers the event to act on
-    * :param: initialEvent The event on `target` that starts the chain
+    * - parameter finalEvent: The name of the event to trigger
+    * - parameter target: Another Actionable object that will triggers the event to act on
+    * - parameter initialEvent: The event on `target` that starts the chain
     */
    public func chain(finalEvent: String, to target: Actionable, forEvent initialEvent: String) {
       target.on(initialEvent) { (data: Any?) -> Void in
@@ -197,9 +197,9 @@ public class Actionable {
     * Returns the event set for the event. If the event
     * set doesn't exist, it will be created.
     *
-    * :param: eventName The key for the event handler
+    * - parameter eventName: The key for the event handler
     *
-    * :returns: The `ActionableEvent` for the event key
+    * - returns: The `ActionableEvent` for the event key
     */
    private func eventSetForEvent(eventName: String) -> ActionableEvent {
       if let event = eventStore[eventName] {
@@ -207,7 +207,7 @@ public class Actionable {
       }
 
       // Create new ActionableEvent
-      var eventSet = ActionableEvent()
+      let eventSet = ActionableEvent()
       eventStore[eventName] = eventSet
       return eventSet
    }

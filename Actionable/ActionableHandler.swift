@@ -14,7 +14,7 @@ public class ActionableHandler {
    /**
     * Setup
     *
-    * :param: handler The closure to store which can be called later
+    * - parameter handler: The closure to store which can be called later
     */
    public init(_ handler: (Any?) -> Void) {
       self.handler = { (data: Any?, next: () -> Void) in
@@ -26,7 +26,7 @@ public class ActionableHandler {
    /**
     * Setup
     *
-    * :param: handler The closure to store which can be called later
+    * - parameter handler: The closure to store which can be called later
     */
    public init(_ handler: (Any?, () -> Void) -> Void) {
       self.handler = handler

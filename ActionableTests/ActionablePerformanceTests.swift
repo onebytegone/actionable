@@ -31,7 +31,7 @@ class ActionablePerformanceTests: XCTestCase {
          index += 1
       }
 
-      var actionable = Actionable()
+      let actionable = Actionable()
       actionable.on("increment", handler: closure)
 
       measureBlock() {
@@ -47,7 +47,7 @@ class ActionablePerformanceTests: XCTestCase {
          index += 1
       }
 
-      var eventSet = ActionableEvent()
+      let eventSet = ActionableEvent()
       eventSet.addHandler(ActionableHandler(closure))
 
       measureBlock() {
@@ -63,7 +63,7 @@ class ActionablePerformanceTests: XCTestCase {
          index += 1
       }
 
-      var event = ActionableHandler(closure)
+      let event = ActionableHandler(closure)
 
       measureBlock() {
          for i in 0...self.LoopCount {
