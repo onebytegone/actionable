@@ -11,6 +11,7 @@
 		3E456A2C1B304B0B00184ABA /* ActionableTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E29766B1B2F73A400673199 /* ActionableTimer.swift */; };
 		3E456A2E1B304E4800184ABA /* ActionableTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E456A2D1B304E4800184ABA /* ActionableTimerTests.swift */; };
 		3E456A301B30731000184ABA /* ActionableDelayedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E456A2F1B30731000184ABA /* ActionableDelayedTests.swift */; };
+		3EA63AF11BB047F900A4E349 /* Actionable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA63AE71BB047F800A4E349 /* Actionable.framework */; };
 		3EA98F631B18F6F6007A088D /* ActionableSequentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA98F621B18F6F6007A088D /* ActionableSequentialTests.swift */; };
 		3EABAE3F1B0AAD6F00B42EE4 /* ActionableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABAE3E1B0AAD6F00B42EE4 /* ActionableEvent.swift */; };
 		3EABAE421B0AB02700B42EE4 /* ActionableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABAE3E1B0AAD6F00B42EE4 /* ActionableEvent.swift */; };
@@ -20,7 +21,6 @@
 		3EAE31491B0BD996002E1BBA /* ActionableHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAE31451B0BD301002E1BBA /* ActionableHandler.swift */; };
 		3EAE314B1B0C0C6A002E1BBA /* ActionableHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAE314A1B0C0C6A002E1BBA /* ActionableHandlerTests.swift */; };
 		3ECAC9881B0CFC0E000CF125 /* ActionableChainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECAC9871B0CFC0E000CF125 /* ActionableChainingTests.swift */; };
-		3ED6C29A1B0A8D6C00D64E4E /* Actionable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ED6C2991B0A8D6C00D64E4E /* Actionable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ED6C2A01B0A8D6C00D64E4E /* Actionable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED6C2951B0A8D6C00D64E4E /* Actionable.framework */; };
 		3ED6C2A71B0A8D6D00D64E4E /* ActionableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6C2A61B0A8D6D00D64E4E /* ActionableTests.swift */; };
 		3ED6C2AE1B0A8D7600D64E4E /* Actionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6C2681B0A8CBF00D64E4E /* Actionable.swift */; };
@@ -28,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3EA63AF21BB047F900A4E349 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E346CFC1B0A8B98008A57D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3EA63AE61BB047F800A4E349;
+			remoteInfo = Actionable;
+		};
 		3ED6C2A11B0A8D6C00D64E4E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3E346CFC1B0A8B98008A57D3 /* Project object */;
@@ -41,6 +48,10 @@
 		3E29766B1B2F73A400673199 /* ActionableTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableTimer.swift; sourceTree = "<group>"; };
 		3E456A2D1B304E4800184ABA /* ActionableTimerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableTimerTests.swift; sourceTree = "<group>"; };
 		3E456A2F1B30731000184ABA /* ActionableDelayedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableDelayedTests.swift; sourceTree = "<group>"; };
+		3EA63AE71BB047F800A4E349 /* Actionable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Actionable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EA63AF01BB047F900A4E349 /* ActionableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActionableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EA63AFF1BB0490200A4E349 /* Actionable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Actionable.h; sourceTree = "<group>"; };
+		3EA63B011BB0490200A4E349 /* Actionable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Actionable.h; sourceTree = "<group>"; };
 		3EA98F621B18F6F6007A088D /* ActionableSequentialTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableSequentialTests.swift; sourceTree = "<group>"; };
 		3EABAE3E1B0AAD6F00B42EE4 /* ActionableEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableEvent.swift; sourceTree = "<group>"; };
 		3EABAE441B0AB05200B42EE4 /* ActionableEventTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableEventTests.swift; sourceTree = "<group>"; };
@@ -51,13 +62,27 @@
 		3ED6C2681B0A8CBF00D64E4E /* Actionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actionable.swift; sourceTree = "<group>"; };
 		3ED6C2951B0A8D6C00D64E4E /* Actionable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Actionable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED6C2981B0A8D6C00D64E4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3ED6C2991B0A8D6C00D64E4E /* Actionable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Actionable.h; sourceTree = "<group>"; };
 		3ED6C29F1B0A8D6C00D64E4E /* ActionableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActionableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED6C2A51B0A8D6D00D64E4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3ED6C2A61B0A8D6D00D64E4E /* ActionableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionableTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3EA63AE31BB047F800A4E349 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EA63AED1BB047F900A4E349 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EA63AF11BB047F900A4E349 /* Actionable.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3ED6C2911B0A8D6C00D64E4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,18 +115,37 @@
 			children = (
 				3ED6C2951B0A8D6C00D64E4E /* Actionable.framework */,
 				3ED6C29F1B0A8D6C00D64E4E /* ActionableTests.xctest */,
+				3EA63AE71BB047F800A4E349 /* Actionable.framework */,
+				3EA63AF01BB047F900A4E349 /* ActionableTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3EA63AFE1BB0490200A4E349 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3EA63AFF1BB0490200A4E349 /* Actionable.h */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		3EA63B001BB0490200A4E349 /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				3EA63B011BB0490200A4E349 /* Actionable.h */,
+			);
+			path = OSX;
 			sourceTree = "<group>";
 		};
 		3ED6C2961B0A8D6C00D64E4E /* Actionable */ = {
 			isa = PBXGroup;
 			children = (
+				3EA63AFE1BB0490200A4E349 /* iOS */,
+				3EA63B001BB0490200A4E349 /* OSX */,
 				3ED6C2681B0A8CBF00D64E4E /* Actionable.swift */,
 				3EABAE3E1B0AAD6F00B42EE4 /* ActionableEvent.swift */,
 				3E29766B1B2F73A400673199 /* ActionableTimer.swift */,
 				3EAE31451B0BD301002E1BBA /* ActionableHandler.swift */,
-				3ED6C2991B0A8D6C00D64E4E /* Actionable.h */,
 				3ED6C2971B0A8D6C00D64E4E /* Supporting Files */,
 			);
 			path = Actionable;
@@ -142,20 +186,62 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		3EA63AE41BB047F800A4E349 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3ED6C2921B0A8D6C00D64E4E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ED6C29A1B0A8D6C00D64E4E /* Actionable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3ED6C2941B0A8D6C00D64E4E /* Actionable */ = {
+		3EA63AE61BB047F800A4E349 /* Actionable (OSX) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3ED6C2A81B0A8D6D00D64E4E /* Build configuration list for PBXNativeTarget "Actionable" */;
+			buildConfigurationList = 3EA63AF81BB047F900A4E349 /* Build configuration list for PBXNativeTarget "Actionable (OSX)" */;
+			buildPhases = (
+				3EA63AE21BB047F800A4E349 /* Sources */,
+				3EA63AE31BB047F800A4E349 /* Frameworks */,
+				3EA63AE41BB047F800A4E349 /* Headers */,
+				3EA63AE51BB047F800A4E349 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Actionable (OSX)";
+			productName = Actionable;
+			productReference = 3EA63AE71BB047F800A4E349 /* Actionable.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3EA63AEF1BB047F900A4E349 /* ActionableTests (OSX) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EA63AFB1BB047F900A4E349 /* Build configuration list for PBXNativeTarget "ActionableTests (OSX)" */;
+			buildPhases = (
+				3EA63AEC1BB047F900A4E349 /* Sources */,
+				3EA63AED1BB047F900A4E349 /* Frameworks */,
+				3EA63AEE1BB047F900A4E349 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3EA63AF31BB047F900A4E349 /* PBXTargetDependency */,
+			);
+			name = "ActionableTests (OSX)";
+			productName = ActionableTests;
+			productReference = 3EA63AF01BB047F900A4E349 /* ActionableTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3ED6C2941B0A8D6C00D64E4E /* Actionable (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ED6C2A81B0A8D6D00D64E4E /* Build configuration list for PBXNativeTarget "Actionable (iOS)" */;
 			buildPhases = (
 				3ED6C2901B0A8D6C00D64E4E /* Sources */,
 				3ED6C2911B0A8D6C00D64E4E /* Frameworks */,
@@ -166,14 +252,14 @@
 			);
 			dependencies = (
 			);
-			name = Actionable;
+			name = "Actionable (iOS)";
 			productName = Actionable;
 			productReference = 3ED6C2951B0A8D6C00D64E4E /* Actionable.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3ED6C29E1B0A8D6C00D64E4E /* ActionableTests */ = {
+		3ED6C29E1B0A8D6C00D64E4E /* ActionableTests (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3ED6C2AB1B0A8D6D00D64E4E /* Build configuration list for PBXNativeTarget "ActionableTests" */;
+			buildConfigurationList = 3ED6C2AB1B0A8D6D00D64E4E /* Build configuration list for PBXNativeTarget "ActionableTests (iOS)" */;
 			buildPhases = (
 				3ED6C29B1B0A8D6C00D64E4E /* Sources */,
 				3ED6C29C1B0A8D6C00D64E4E /* Frameworks */,
@@ -184,7 +270,7 @@
 			dependencies = (
 				3ED6C2A21B0A8D6C00D64E4E /* PBXTargetDependency */,
 			);
-			name = ActionableTests;
+			name = "ActionableTests (iOS)";
 			productName = ActionableTests;
 			productReference = 3ED6C29F1B0A8D6C00D64E4E /* ActionableTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -200,6 +286,12 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Ethan Smith";
 				TargetAttributes = {
+					3EA63AE61BB047F800A4E349 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					3EA63AEF1BB047F900A4E349 = {
+						CreatedOnToolsVersion = 7.1;
+					};
 					3ED6C2941B0A8D6C00D64E4E = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
@@ -221,13 +313,29 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3ED6C2941B0A8D6C00D64E4E /* Actionable */,
-				3ED6C29E1B0A8D6C00D64E4E /* ActionableTests */,
+				3ED6C2941B0A8D6C00D64E4E /* Actionable (iOS) */,
+				3ED6C29E1B0A8D6C00D64E4E /* ActionableTests (iOS) */,
+				3EA63AE61BB047F800A4E349 /* Actionable (OSX) */,
+				3EA63AEF1BB047F900A4E349 /* ActionableTests (OSX) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3EA63AE51BB047F800A4E349 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EA63AEE1BB047F900A4E349 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3ED6C2931B0A8D6C00D64E4E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,6 +353,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3EA63AE21BB047F800A4E349 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EA63AEC1BB047F900A4E349 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3ED6C2901B0A8D6C00D64E4E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,9 +400,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3EA63AF31BB047F900A4E349 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3EA63AE61BB047F800A4E349 /* Actionable (OSX) */;
+			targetProxy = 3EA63AF21BB047F900A4E349 /* PBXContainerItemProxy */;
+		};
 		3ED6C2A21B0A8D6C00D64E4E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3ED6C2941B0A8D6C00D64E4E /* Actionable */;
+			target = 3ED6C2941B0A8D6C00D64E4E /* Actionable (iOS) */;
 			targetProxy = 3ED6C2A11B0A8D6C00D64E4E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -369,6 +496,86 @@
 			};
 			name = Release;
 		};
+		3EA63AF91BB047F900A4E349 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Actionable/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hipsterlogic.Actionable;
+				PRODUCT_NAME = Actionable;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3EA63AFA1BB047F900A4E349 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Actionable/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hipsterlogic.Actionable;
+				PRODUCT_NAME = Actionable;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3EA63AFC1BB047F900A4E349 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = ActionableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hipsterlogic.ActionableTests;
+				PRODUCT_NAME = ActionableTests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3EA63AFD1BB047F900A4E349 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ActionableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hipsterlogic.ActionableTests;
+				PRODUCT_NAME = ActionableTests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		3ED6C2A91B0A8D6D00D64E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -385,7 +592,7 @@
 				INFOPLIST_FILE = Actionable/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Actionable;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -404,7 +611,7 @@
 				INFOPLIST_FILE = Actionable/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Actionable;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -424,7 +631,7 @@
 				);
 				INFOPLIST_FILE = ActionableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ActionableTests;
 			};
 			name = Debug;
 		};
@@ -437,7 +644,7 @@
 				);
 				INFOPLIST_FILE = ActionableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ActionableTests;
 			};
 			name = Release;
 		};
@@ -453,7 +660,25 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3ED6C2A81B0A8D6D00D64E4E /* Build configuration list for PBXNativeTarget "Actionable" */ = {
+		3EA63AF81BB047F900A4E349 /* Build configuration list for PBXNativeTarget "Actionable (OSX)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EA63AF91BB047F900A4E349 /* Debug */,
+				3EA63AFA1BB047F900A4E349 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EA63AFB1BB047F900A4E349 /* Build configuration list for PBXNativeTarget "ActionableTests (OSX)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EA63AFC1BB047F900A4E349 /* Debug */,
+				3EA63AFD1BB047F900A4E349 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3ED6C2A81B0A8D6D00D64E4E /* Build configuration list for PBXNativeTarget "Actionable (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3ED6C2A91B0A8D6D00D64E4E /* Debug */,
@@ -462,7 +687,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3ED6C2AB1B0A8D6D00D64E4E /* Build configuration list for PBXNativeTarget "ActionableTests" */ = {
+		3ED6C2AB1B0A8D6D00D64E4E /* Build configuration list for PBXNativeTarget "ActionableTests (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3ED6C2AC1B0A8D6D00D64E4E /* Debug */,
