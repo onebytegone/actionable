@@ -41,7 +41,7 @@ public class ActionableTimer {
 
    public func disposeOfStoredTimers() {
       // Cancel all timers
-      for (key, timer) in timers {
+      for (key, _) in timers {
          cancelTimer(key)
       }
    }
@@ -52,7 +52,7 @@ public class ActionableTimer {
       // If the timer doesn't repeat, cancel it
       if !package.repeating {
          let keys = (timers as NSDictionary).allKeysForObject(timer) as! [String]
-         keys.map { (key: String) in
+         for key in keys {
             self.cancelTimer(key)
          }
       }

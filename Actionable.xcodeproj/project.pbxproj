@@ -30,6 +30,29 @@
 		3EF8DF731BB6D585003E357A /* Actionable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EF8DF561BB6D4D1003E357A /* Actionable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3EF8DF741BB6D58B003E357A /* Actionable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EA63B011BB0490200A4E349 /* Actionable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3EF8DF761BB6D594003E357A /* Actionable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EA63AFF1BB0490200A4E349 /* Actionable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3EF8DF7B1BB6DD3C003E357A /* Actionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6C2681B0A8CBF00D64E4E /* Actionable.swift */; };
+		3EF8DF7C1BB6DD3C003E357A /* Actionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6C2681B0A8CBF00D64E4E /* Actionable.swift */; };
+		3EF8DF7D1BB6DD42003E357A /* ActionableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABAE3E1B0AAD6F00B42EE4 /* ActionableEvent.swift */; };
+		3EF8DF7E1BB6DD42003E357A /* ActionableTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E29766B1B2F73A400673199 /* ActionableTimer.swift */; };
+		3EF8DF7F1BB6DD42003E357A /* ActionableHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAE31451B0BD301002E1BBA /* ActionableHandler.swift */; };
+		3EF8DF801BB6DD42003E357A /* ActionableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABAE3E1B0AAD6F00B42EE4 /* ActionableEvent.swift */; };
+		3EF8DF811BB6DD42003E357A /* ActionableTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E29766B1B2F73A400673199 /* ActionableTimer.swift */; };
+		3EF8DF821BB6DD42003E357A /* ActionableHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAE31451B0BD301002E1BBA /* ActionableHandler.swift */; };
+		3EF8DF831BB6DD4C003E357A /* ActionableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6C2A61B0A8D6D00D64E4E /* ActionableTests.swift */; };
+		3EF8DF841BB6DD4C003E357A /* ActionableChainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECAC9871B0CFC0E000CF125 /* ActionableChainingTests.swift */; };
+		3EF8DF851BB6DD4C003E357A /* ActionableDelayedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E456A2F1B30731000184ABA /* ActionableDelayedTests.swift */; };
+		3EF8DF861BB6DD4C003E357A /* ActionableTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E456A2D1B304E4800184ABA /* ActionableTimerTests.swift */; };
+		3EF8DF871BB6DD4C003E357A /* ActionableSequentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA98F621B18F6F6007A088D /* ActionableSequentialTests.swift */; };
+		3EF8DF881BB6DD4C003E357A /* ActionablePerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABAE4A1B0AB9E500B42EE4 /* ActionablePerformanceTests.swift */; };
+		3EF8DF891BB6DD4C003E357A /* ActionableEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABAE441B0AB05200B42EE4 /* ActionableEventTests.swift */; };
+		3EF8DF8A1BB6DD4C003E357A /* ActionableHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAE314A1B0C0C6A002E1BBA /* ActionableHandlerTests.swift */; };
+		3EF8DF8B1BB6DD4E003E357A /* ActionableChainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECAC9871B0CFC0E000CF125 /* ActionableChainingTests.swift */; };
+		3EF8DF8C1BB6DD4E003E357A /* ActionableDelayedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E456A2F1B30731000184ABA /* ActionableDelayedTests.swift */; };
+		3EF8DF8D1BB6DD4E003E357A /* ActionableTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E456A2D1B304E4800184ABA /* ActionableTimerTests.swift */; };
+		3EF8DF8E1BB6DD4E003E357A /* ActionableSequentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA98F621B18F6F6007A088D /* ActionableSequentialTests.swift */; };
+		3EF8DF8F1BB6DD4E003E357A /* ActionablePerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABAE4A1B0AB9E500B42EE4 /* ActionablePerformanceTests.swift */; };
+		3EF8DF901BB6DD4E003E357A /* ActionableEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABAE441B0AB05200B42EE4 /* ActionableEventTests.swift */; };
+		3EF8DF911BB6DD4E003E357A /* ActionableHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAE314A1B0C0C6A002E1BBA /* ActionableHandlerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -497,6 +520,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EF8DF881BB6DD4C003E357A /* ActionablePerformanceTests.swift in Sources */,
+				3EF8DF891BB6DD4C003E357A /* ActionableEventTests.swift in Sources */,
+				3EF8DF8A1BB6DD4C003E357A /* ActionableHandlerTests.swift in Sources */,
+				3EF8DF841BB6DD4C003E357A /* ActionableChainingTests.swift in Sources */,
+				3EF8DF871BB6DD4C003E357A /* ActionableSequentialTests.swift in Sources */,
+				3EF8DF851BB6DD4C003E357A /* ActionableDelayedTests.swift in Sources */,
+				3EF8DF831BB6DD4C003E357A /* ActionableTests.swift in Sources */,
+				3EF8DF861BB6DD4C003E357A /* ActionableTimerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +565,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EF8DF7D1BB6DD42003E357A /* ActionableEvent.swift in Sources */,
+				3EF8DF7B1BB6DD3C003E357A /* Actionable.swift in Sources */,
+				3EF8DF7F1BB6DD42003E357A /* ActionableHandler.swift in Sources */,
+				3EF8DF7E1BB6DD42003E357A /* ActionableTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,7 +576,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EF8DF801BB6DD42003E357A /* ActionableEvent.swift in Sources */,
 				3EF8DF6B1BB6D507003E357A /* ActionableTests.swift in Sources */,
+				3EF8DF911BB6DD4E003E357A /* ActionableHandlerTests.swift in Sources */,
+				3EF8DF8F1BB6DD4E003E357A /* ActionablePerformanceTests.swift in Sources */,
+				3EF8DF8B1BB6DD4E003E357A /* ActionableChainingTests.swift in Sources */,
+				3EF8DF8D1BB6DD4E003E357A /* ActionableTimerTests.swift in Sources */,
+				3EF8DF7C1BB6DD3C003E357A /* Actionable.swift in Sources */,
+				3EF8DF8E1BB6DD4E003E357A /* ActionableSequentialTests.swift in Sources */,
+				3EF8DF901BB6DD4E003E357A /* ActionableEventTests.swift in Sources */,
+				3EF8DF811BB6DD42003E357A /* ActionableTimer.swift in Sources */,
+				3EF8DF821BB6DD42003E357A /* ActionableHandler.swift in Sources */,
+				3EF8DF8C1BB6DD4E003E357A /* ActionableDelayedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +633,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -745,6 +792,7 @@
 				INFOPLIST_FILE = Actionable/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onebytegone.actionable;
 				PRODUCT_NAME = Actionable;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -764,6 +812,7 @@
 				INFOPLIST_FILE = Actionable/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onebytegone.actionable;
 				PRODUCT_NAME = Actionable;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -784,6 +833,7 @@
 				);
 				INFOPLIST_FILE = ActionableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onebytegone.actionabletests;
 				PRODUCT_NAME = ActionableTests;
 			};
 			name = Debug;
@@ -797,6 +847,7 @@
 				);
 				INFOPLIST_FILE = ActionableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onebytegone.actionabletests;
 				PRODUCT_NAME = ActionableTests;
 			};
 			name = Release;
