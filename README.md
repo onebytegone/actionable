@@ -14,6 +14,7 @@ This is a work in progress. It is in a pre alpha state.
 ## Contents ##
 
 - [Status](#status)
+- [Setup](#setup)
 - [Performance](#performance)
 - [Usage](#usage)
   - [Event Registration](#event-registration)
@@ -28,6 +29,18 @@ This is a work in progress. It is in a pre alpha state.
     - [`.triggerOnInterval(interval, key)`](#triggerOnIntervalinterval-key)
   - [Other Actions](#other-actions)
     - [`.chain(key, target, event)`](#chainkey-target-event)
+
+
+
+## Setup
+
+### Using with [cocoapods](http://cocoapods.org/)
+
+Actionable has not been published to the CocoaPods Trunk yet. To use, add the following line to your project's `Podfile` then run `pod install`.
+
+```
+pod 'Actionable', :git => 'https://github.com/onebytegone/actionable.git'
+```
 
 
 
