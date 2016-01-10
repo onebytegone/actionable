@@ -161,3 +161,8 @@ child.on("moreadds") {
 
 parent.trigger("increment")
 ```
+
+# License
+
+`Actionable` is released under the MIT license. See [LICENSE.md](LICENSE.md) for more information.
+
